@@ -1,0 +1,10 @@
+Metadata-Version: 1.0
+Name: virtkey
+Version: 0.63.0
+Summary: Extension for python and python3 to emulate keypresses and to get the layout information from the X server.
+Home-page: https://launchpad.net/virtkey/
+Author: Ubuntu Core Developers
+Author-email: ubuntu-devel-discuss@lists.ubuntu.com
+License: LGPL
+Description: UNKNOWN
+Platform: UNKNOWN
