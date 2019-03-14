@@ -16,14 +16,14 @@ class gzhEssaySpider(object):
             'User-Agent': 'Mozilla/5.0 (Linux; Android 7.0; PRO 5 Build/NRD90M; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/66.0.3359.126 MQQBrowser/6.2 TBS/044504 Mobile Safari/537.36 MMWEBID/8780 MicroMessenger/7.0.3.1400(0x2700033A) Process/toolsmp NetType/WIFI Language/zh_CN',
             'Accept-Language': 'zh-CN,en-US;q=0.9',
             'X-Requested-With': 'XMLHttpRequest',
-            'Cookie': 'wxuin=945482497; devicetype=android-24; lang=zh_CN; version=2700033b; rewardsn=; wxtokenkey=777; pass_ticket=1UdfkB+58NixLNpzC07wm7qWGgxlIuvQrJPsLD1ZObOc7f0Wd3pa/JmOfCmIxAX5; wap_sid2=CIHW68IDElxNd1RFclJYTVZmVEVKVlZ1cWRfM0l5N3B0UG9ham9Ja216dTRpWkdnSGJ3UHNXQlF5a25aRzhHcTZTRnBpQjZFRWJFeHVHUG9sX1NMQXVBMlFNYjRFLWNEQUFBfjCGx5zkBTgNQJVO',
+            'Cookie': 'wxuin=945482497; devicetype=android-24; lang=zh_CN; version=2700033b; rewardsn=; wxtokenkey=777; pass_ticket=2PahGvZOIyiRqEzsfZ6ZByKlkStlBz4dThM4gLnIbtuXZWXx4dPF5EkO3F9/LZWb; wap_sid2=CIHW68IDElxjOWJHc3JYdVFtY0RfQktGOTNKal94ZV9LMEJNS3pmWWQ1QVRFaUluNlZ5WnhKOWUtTEQzek9qdGxWUlRDVmpJcU15N2FkeXVIdGFGLUNFNzJBc2oydWdEQUFBfjDzn6fkBTgNQJVO',
             'Accept': '*/*',
-            'Referer': 'https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzI3MzQ4MjI1Mw==&scene=126&bizpsid=0&devicetype=android-24&version=2700033b&lang=zh_CN&nettype=WIFI&a8scene=3&pass_ticket=1UdfkB%2B58NixLNpzC07wm7qWGgxlIuvQrJPsLD1ZObOc7f0Wd3pa%2FJmOfCmIxAX5&wx_header=1'
+            'Referer': 'https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzI5NTM0MTQwNA==&scene=126&bizpsid=0&devicetype=android-24&version=2700033b&lang=zh_CN&nettype=WIFI&a8scene=3&pass_ticket=2PahGvZOIyiRqEzsfZ6ZByKlkStlBz4dThM4gLnIbtuXZWXx4dPF5EkO3F9%2FLZWb&wx_header=1'
         }
 
         # 更多文章 URL
         # # 注意：请将appmsg_token和pass_ticket替换成你自己的
-        self.url_more = 'https://mp.weixin.qq.com/mp/profile_ext?action=getmsg&__biz=MzI3MzQ4MjI1Mw==&f=json&offset={}&count=10&is_ok=1&scene=126&uin=777&key=777&pass_ticket=1UdfkB%2B58NixLNpzC07wm7qWGgxlIuvQrJPsLD1ZObOc7f0Wd3pa%2FJmOfCmIxAX5&wxtoken=&appmsg_token=999_7EOUk%252FNCy00Cr5HGn-Bqvi4DxBtri2EE4KyYpA~~&x5=1&f=json'
+        self.url_more = 'https://mp.weixin.qq.com/mp/profile_ext?action=getmsg&__biz=MzI5NTM0MTQwNA==&f=json&offset={}&count=10&is_ok=1&scene=126&uin=777&key=777&pass_ticket=2PahGvZOIyiRqEzsfZ6ZByKlkStlBz4dThM4gLnIbtuXZWXx4dPF5EkO3F9%2FLZWb&wxtoken=&appmsg_token=1000_GZo3iStHLHk%252Frto06fO-L9RIMdAEb3QmPV3rTw~~&x5=1&f=json'
 
         logging.basicConfig(level=logging.INFO)
         self.logger = logging.getLogger(__name__)
@@ -123,6 +123,8 @@ class gzhEssaySpider(object):
         title = title.replace('<','-')
         title = title.replace('>','-')
         title = title.replace('&','-')
+        title = title.replace('?','-')
+        title = title.replace(' ','-')
         fileDir = os.path.dirname(fileName)
         if not (os.path.isdir(fileDir)):
             os.system('mkdir -p {}'.format(fileDir))
