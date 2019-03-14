@@ -76,6 +76,7 @@ def wkhUrl2pdfLinux(url, pdfName):
         print(convertCmd)
         os.system(convertCmd)
     html = html.replace('data-src','src')
+    html = html + '<a href>声明：pdf仅供学习使用，一切版权归原创公众号所有；建议持续关注原创公众号获取最新文章，学习愉快！</a>'
     fd = open(fileName, 'w', encoding="utf-8")
     fd.write(html)
     fd.close()
